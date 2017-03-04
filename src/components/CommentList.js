@@ -3,15 +3,36 @@ import Comment from './Comment';
 
 class CommentList extends Component {
 
+    constructor() {
+        super();
+
+        this.state = {
+            isOpen: false
+        };
+    }
+
     render() {
         const {comments} = this.props;
+        const {isOpen} = this.state;
 
-        // const commentComponents = comments.map(comment => <li key={comment.id}><Comment comment={comment}/></li>);
+        const commentComponents = isOpen ?
+            comments.map(comment => <li key={comment.id}><Comment comment={comment}/></li>) : null;
 
         return (
-            <ul>
-                <li>123</li>
-            </ul>
+            <div>
+                <button onClick={this.handleClick}>Show comments</button>
+                <ul>
+                    {commentComponents}
+                </ul>
+            </div>
         )
     }
+
+    handleClick = (ev) => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
+    }
 }
+
+export default CommentList;

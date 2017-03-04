@@ -9,10 +9,14 @@ class Comment extends Component {
     render() {
         const {comment} = this.props;
 
+        const user = comment.user;
         const text = comment.text;
 
         return (
-            <div>{text}</div>
+            <div>
+                <h4>{user}</h4>
+                <p>{text}</p>
+            </div>
         )
     }
 }

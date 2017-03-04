@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-// import CommentList from './Comment'
+import CommentList from './CommentList'
 
 class Article extends Component {
 
@@ -12,18 +12,20 @@ class Article extends Component {
 
     render() {
         const {article} = this.props;
-        const comments = article.comments || [];
         const {isOpen} = this.state;
         const body = isOpen ? <section>{article.text}</section> : null;
 
-        console.log(comments);
+        // console.log(comments);
 
         // const commentsSection = isOpen ? <CommentList /> : null;
+
+        const comments = (isOpen && article.comments) ? <CommentList comments={article.comments} /> : null;
 
         return (
             <div>
                 <h3 onClick={this.handleClick}>{article.title}</h3>
                 {body}
+                {comments}
             </div>
         )
     }
