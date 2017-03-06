@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 
-//Это можно сделать Functional Component, по возможности используй их
-class Comment extends Component {
-
-    constructor() {
-        super();
-    }
-
-    render() {
-        const {comment} = this.props;
-
+/**
+ * @return {null}
+ */
+const Comment = ({comment}) => {
+    if (!comment) {
+        return null;
+    } else {
         const user = comment.user;
         const text = comment.text;
 
@@ -20,6 +17,6 @@ class Comment extends Component {
             </div>
         )
     }
-}
+};
 
 export default Comment;
