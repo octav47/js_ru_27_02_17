@@ -16,7 +16,7 @@ class Article extends Component {
 
         const body = isOpen ? <section>{article.text}</section> : null;
         //Я б эту проверку спрятал в CommentList
-        const comments = (isOpen && article.comments) ? <CommentList comments={article.comments} /> : null;
+        const comments = (isOpen) ? <CommentList comments={article.comments} /> : null;
 
         return (
             <div>

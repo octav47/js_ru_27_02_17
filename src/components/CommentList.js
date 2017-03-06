@@ -13,6 +13,11 @@ class CommentList extends Component {
 
     render() {
         const {comments} = this.props;
+
+        if (!comments) {
+            return null;
+        }
+
         const {isOpen} = this.state;
 
         const commentComponents = isOpen ?
