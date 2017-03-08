@@ -64,6 +64,6 @@ CommentList.propTypes = {
     comments: PropTypes.array.isRequired,
     isOpen: PropTypes.bool.isRequired,
     toggleOpen: PropTypes.func.isRequired
-}
+};
 
 export default toggleOpen(CommentList)
